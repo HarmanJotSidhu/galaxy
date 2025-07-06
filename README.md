@@ -1,0 +1,1 @@
+docker build --build-arg REACT_APP_EMAILJS_SERVICE_ID="service_icsk3a9" --build-arg REACT_APP_EMAILJS_TEMPLATE_ID="template_g28tlzk" \ --build-arg REACT_APP_EMAILJS_PUBLIC_KEY="Wlb3TeU_pK2HO2kJx" \ -t react-app .

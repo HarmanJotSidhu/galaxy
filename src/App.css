@@ -1,0 +1,67 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+.app {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+}
+
+
+
+/* General styling for the top bar */
+.top-bar {
+  background-color: #f8f9fa; /* Background color */
+  padding: 10px 0; /* Vertical padding */
+}
+
+/* Ensure the row is a flex container */
+.top-bar .row {
+  display: flex;
+  justify-content: space-between; /* Distribute the content evenly */
+  align-items: center; /* Vertically align items */
+  flex-wrap: nowrap; /* Prevent the items from wrapping to the next line */
+}
+
+/* Styling for the left side of the top bar (contact info) */
+.top-bar .list-group {
+  display: flex;
+  margin-bottom: 0; /* Remove bottom margin */
+  padding: 0; /* Remove padding */
+}
+
+.top-bar .list-group-item {
+  border: none; /* Remove border */
+  padding-left: 10px; /* Space between items */
+  padding-right: 10px; /* Space between items */
+}
+
+.top-bar .list-group-item i {
+  margin-right: 5px; /* Space between icon and text */
+}
+
+/* Styling for the right side of the top bar (phone numbers) */
+.top-bar .list-group-item a {
+  color: #000000; /* Set color for phone numbers */
+  text-decoration: none; /* Remove underline */
+}
+
+.top-bar .list-group-item a:hover {
+  color: #007bff; /* Change color on hover */
+  text-decoration: underline; /* Add underline on hover */
+}
+
+/* Styling for the icons */
+.top-bar .fas,
+.top-bar .bi {
+  font-size: 16px; /* Set icon size */
+  color: #000; /* Set icon color */
+}
+
+/* Make sure it stays hidden on small screens */
+@media (max-width: 767px) {
+  .top-bar {
+    display: none; /* Hide top bar on smaller screens */
+  }
+}
