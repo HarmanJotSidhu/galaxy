@@ -120,14 +120,49 @@ const WindowTinting = () => {
   ];
 
   // ===== NZ Tint Law Table =====
-  const nzLawRows = [
-    { vehicle: "Class MA (Passenger cars)", windshield: "None", front: "35%", back: "35%", rear: "35%" },
-    { vehicle: "Class MB, MD1 & MD2", windshield: "None", front: "35%", back: "Any level", rear: "Any level" },
-    { vehicle: "Class MC", windshield: "None", front: "35%", back: "Any level", rear: "Any level" },
-    { vehicle: "Class NA", windshield: "None", front: "35%", back: "Any level", rear: "Any level" },
-    { vehicle: "Class MA (limousines/body transfer exception)", windshield: "None", front: "35%", back: "Any level", rear: "Any level" },
-    { vehicle: "Class ME", windshield: "None", front: "35%", back: "Any level", rear: "Any level" },
-  ];
+ // ---- Put these above your component (e.g., near other constants) ----
+const qldLawRows = [
+  {
+    vehicle: "All vehicles (windscreen)",
+    windshield: "Top 10% strip only, OR above wiper sweep (no film below).",
+    front: "—",
+    back: "—",
+    rear: "—",
+  },
+  {
+    vehicle: "Passenger vehicles",
+    windshield: "Top 10% strip only / above wiper sweep.",
+    front: "≥ 35% VLT",
+    back: "≥ 20% VLT",
+    rear: "≥ 20% VLT",
+  },
+  {
+    vehicle: "Goods / commercial",
+    windshield: "Top 10% strip only / above wiper sweep.",
+    front: "≥ 35% VLT",
+    back: "≥ 20% VLT",
+    rear: "≥ 20% VLT",
+  },
+];
+
+const qldFaq = [
+  {
+    q: "What is VLT?",
+    a: "Visible Light Transmission — the % of light that passes through glass+film. 35% VLT means 65% of light is blocked.",
+  },
+  {
+    q: "Is reflective (mirror) tint allowed?",
+    a: "Yes, but external reflectance must be ≤ 10%. Avoid mirror-like films that exceed this.",
+  },
+  {
+    q: "Do I need side mirrors if the rear is tinted?",
+    a: "If rear windows are tinted, fit dual external mirrors to maintain rearward vision.",
+  },
+  {
+    q: "Any colour limits on the windscreen strip?",
+    a: "The top strip can be any shade but must stay within the top 10% (or above the wiper sweep) and meet the reflectance rule.",
+  },
+];
 
   // ===== Locations / Contacts =====
   const locations = [
@@ -359,43 +394,48 @@ const WindowTinting = () => {
 
       {/* NZ Window Tint Law */}
       <section className="py-20 px-4 bg-gray-50">
-        <div className="max-w-7xl mx-auto">
-          <div className="mb-8">
-            <h3 className="text-3xl font-bold text-gray-900 mb-2">Car Window Tinting Law in New Zealand</h3>
-            <p className="text-gray-700">
-              It’s illegal to apply window film to the front windscreen of any vehicle. Passenger vehicles have a legal
-              limit of <span className="font-semibold">35% VLT</span> on the two front doors. Goods-carrying vehicles may have darker films rearward from the driver.
-            </p>
-          </div>
-          <div className="overflow-x-auto bg-white rounded-xl shadow">
-            <table className="min-w-full text-left">
-              <thead className="bg-gray-100">
-                <tr>
-                  <th className="px-4 py-3 text-gray-700 font-semibold">Vehicle</th>
-                  <th className="px-4 py-3 text-gray-700 font-semibold">Windshield</th>
-                  <th className="px-4 py-3 text-gray-700 font-semibold">Front Side</th>
-                  <th className="px-4 py-3 text-gray-700 font-semibold">Back Side</th>
-                  <th className="px-4 py-3 text-gray-700 font-semibold">Rear</th>
-                </tr>
-              </thead>
-              <tbody>
-                {nzLawRows.map((r, i) => (
-                  <tr key={i} className="border-t">
-                    <td className="px-4 py-3">{r.vehicle}</td>
-                    <td className="px-4 py-3">{r.windshield}</td>
-                    <td className="px-4 py-3">{r.front}</td>
-                    <td className="px-4 py-3">{r.back}</td>
-                    <td className="px-4 py-3">{r.rear}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-          <p className="text-sm text-gray-500 mt-3">
-            VLT = Visible Light Transmission. Always confirm regional updates to regulations.
-          </p>
-        </div>
-      </section>
+  <div className="max-w-5xl mx-auto">
+    <div className="mb-8">
+      <h3 className="text-3xl font-bold text-gray-900 mb-2">
+        Queensland Tint Laws
+      </h3>
+      <p className="text-gray-700">
+        Queensland tint laws are simple and precise. Front windscreens cannot be tinted, 
+        except for a <span className="font-semibold">top 10% strip</span>. 
+        Front side windows must allow at least <span className="font-semibold">35% VLT</span>. 
+        All windows behind the driver, including the rear windscreen, may be tinted to{" "}
+        <span className="font-semibold">20% VLT</span>.
+      </p>
+    </div>
+
+    {/* Tint law boxes */}
+    <div className="grid md:grid-cols-2 gap-4">
+      <div className="bg-white rounded-xl shadow p-5">
+        <p className="font-semibold text-gray-900">Front Windshield</p>
+        <p className="text-gray-700">Top 10% strip only (above wiper sweep)</p>
+      </div>
+      <div className="bg-white rounded-xl shadow p-5">
+        <p className="font-semibold text-gray-900">Front Side Windows</p>
+        <p className="text-gray-700">35% VLT minimum</p>
+      </div>
+      <div className="bg-white rounded-xl shadow p-5">
+        <p className="font-semibold text-gray-900">Back Side Windows</p>
+        <p className="text-gray-700">20% VLT minimum</p>
+      </div>
+      <div className="bg-white rounded-xl shadow p-5">
+        <p className="font-semibold text-gray-900">Rear Windshield</p>
+        <p className="text-gray-700">20% VLT minimum</p>
+      </div>
+    </div>
+
+    <p className="text-gray-600 mt-6">
+      <strong>Additional rules:</strong> Reflective tint is limited to{" "}
+      <span className="font-semibold">≤10% reflectance</span>.  
+      Side mirrors are required if rear windows are tinted below 35% VLT.  
+      No stickers or certificates are required.
+    </p>
+  </div>
+</section>
 
       {/* Testimonial */}
       <section className="py-16 px-4">
@@ -456,33 +496,7 @@ const WindowTinting = () => {
         </div>
       </section>
 
-      {/* Locations Directory */}
-      <section className="py-20 px-4 bg-white">
-        <div className="max-w-7xl mx-auto">
-          <h3 className="text-3xl font-bold text-gray-900 mb-8">Contact Us — Branches</h3>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {locations.map((loc, i) => (
-              <div key={i} className="rounded-xl border p-6 hover:shadow-md transition-shadow">
-                <div className="flex items-center gap-2 mb-3">
-                  <MapPin className="text-blue-600" size={18} />
-                  <h4 className="font-semibold text-gray-900">{loc.city}</h4>
-                </div>
-                {loc.addr1 && <p className="text-gray-700">{loc.addr1}</p>}
-                {loc.addr2 && <p className="text-gray-700">{loc.addr2}</p>}
-                <p className="mt-3 text-gray-800">
-                  <span className="font-semibold">Phone:</span> {loc.phone}
-                </p>
-                <p className="text-gray-800">
-                  <span className="font-semibold">Email:</span>{" "}
-                  <a className="text-blue-700 hover:underline" href={`mailto:${loc.email}`}>
-                    {loc.email}
-                  </a>
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      
 
       {/* Footer / Quick Links */}
       <footer className="bg-gray-900 text-gray-300">
