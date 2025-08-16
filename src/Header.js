@@ -31,17 +31,7 @@ const Header = ({ isMenuOpen, setIsMenuOpen, scrollToSection, setIsModalOpen, se
         </div>
       </div>
 
-      {isMenuOpen && (
-        <div className="md:hidden">
-          <div className="px-2 pt-2 pb-3 space-y-1">
-            <button onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="block w-full text-left px-3 py-2 text-gray-700 hover:bg-gray-100">Home</button>
-            <button onClick={() => scrollToSection(servicesRef)} className="block w-full text-left px-3 py-2 text-gray-700 hover:bg-gray-100">Services</button>
-            <button onClick={() => navigate("/gallery")} className="block w-full text-left px-3 py-2 text-gray-700 hover:bg-gray-100">Gallery</button>
-            <button onClick={() => scrollToSection(contactRef)} className="block w-full text-left px-3 py-2 text-gray-700 hover:bg-gray-100">Contact</button>
-            <button onClick={() => setIsModalOpen(true)} className="w-full text-left px-3 py-2 text-blue-600">Get Quote</button>
-          </div>
-        </div>
-      )}
+     
     </nav>
   );
 };
