@@ -251,46 +251,68 @@ const qldFaq = [
           </div>
         </div>
       </div>
-
-      {/* Intro Copy */}
-      <section className="py-16 px-4">
-        <div className="max-w-5xl mx-auto text-center">
-          <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
-            Professional Car Window Tinting in Hamilton
-          </h2>
-          <p className="text-lg text-gray-700 leading-relaxed">
-            Explore a range of films, from durable carbon to premium ceramic. We’ve been serving Kiwis since 2018
+{/* After Hero Section: Intro + Before/After */}
+<section className="px-4 py-16 bg-white">
+  <div className="container mx-auto max-w-6xl">
+    <h2 className="text-3xl lg:text-4xl font-bold text-center mb-4">
+      Car Window Tinting in Brisbane
+    </h2>
+    <div className="middle-seperater mx-auto my-4 h-1 w-24 bg-gray-900/80 rounded-full"></div>
+    <div className="grid md:grid-cols-2 gap-10 items-center mt-10">
+      {/* Left copy + CTAs */}
+      <div>
+        <p className="text-justify text-gray-700 mb-6 leading-relaxed">
+          At <span className="font-semibold">Galaxy Tint & Wrap</span>, we bring
+          professional-grade window tinting and vehicle styling to{" "}
+          <span className="font-semibold">Brisbane, Queensland</span>. Our
+          high-performance films reduce cabin heat, block up to{" "}
+          <span className="font-semibold">99% of UV rays</span>, and add privacy
+          — all while elevating your vehicle’s look. Explore a range of films, from durable carbon to premium ceramic. We’ve been serving Kiwis since 2018
             with a satisfaction-first approach, fair pricing, and a service guarantee. Our certified installers
-            work to manufacturer standards and NZ regulations for a clean, bubble-free finish that lasts.
-          </p>
+            work to manufacturer standards and NZ regulations for a clean, bubble-free finish that lasts. We guarantee a sleek,
+          bubble-free finish that lasts.
+        </p>
+        <div className="flex flex-wrap gap-4">
+          <button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-lg font-semibold transition-colors flex items-center">
+            Free Quote
+          </button>
+          <button className="border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white px-8 py-4 rounded-lg font-semibold transition-colors flex items-center">
+            Book Now
+          </button>
         </div>
-      </section>
+      </div>
 
-      {/* Why Choose Us */}
-      <section className="py-20 px-4 bg-gray-50">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-14">
-            <h3 className="text-4xl font-bold text-gray-900 mb-4">Why Choose Us for Window Tinting</h3>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Comfort, protection, and style — tailored to how you drive.
-            </p>
+      {/* Right: Before/After Comparison */}
+      <div className="relative">
+        <div className="relative overflow-hidden rounded-xl shadow-lg">
+          {/* After image (full) */}
+          <img
+            src="https://www.drtint.co.nz/front/images/after-tesla.webp"
+            alt="Tinted vehicle after"
+            className="w-full h-full object-cover"
+          />
+          {/* Before overlay (clip controlled by slider if you want to extend functionality) */}
+          <div className="absolute top-0 left-0 w-1/2 h-full overflow-hidden">
+            <img
+              src="https://www.drtint.co.nz/front/images/before-tesla.webp"
+              alt="Vehicle before tinting"
+              className="w-full h-full object-cover"
+            />
           </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {whyChoose.map((b, i) => (
-              <div key={i} className="bg-white rounded-xl shadow-lg p-8 hover:shadow-xl transition-shadow">
-                <div className="bg-blue-100 text-blue-600 w-16 h-16 rounded-lg flex items-center justify-center mb-6">
-                  <b.icon size={32} />
-                </div>
-                <h4 className="text-xl font-semibold text-gray-900 mb-3">{b.title}</h4>
-                <p className="text-gray-600">{b.description}</p>
-              </div>
-            ))}
+          {/* Labels */}
+          <div className="absolute top-3 left-3 bg-white/90 px-2 py-0.5 text-xs font-semibold rounded">
+            Before
+          </div>
+          <div className="absolute top-3 right-3 bg-white/90 px-2 py-0.5 text-xs font-semibold rounded">
+            After
           </div>
         </div>
-      </section>
+      </div>
+    </div>
+  </div>
+</section>
 
-      {/* Vehicle Type Tabs + Gallery */}
-      <section className="py-20 px-4">
+<section className="py-20 px-4">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
             <h3 className="text-4xl font-bold text-gray-900 mb-4">Our Tinting Work</h3>
@@ -376,6 +398,32 @@ const qldFaq = [
           </div>
         </div>
       </section>
+      
+      {/* Why Choose Us */}
+      <section className="py-20 px-4 bg-gray-50">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-14">
+            <h3 className="text-4xl font-bold text-gray-900 mb-4">Why Choose Us for Window Tinting</h3>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Comfort, protection, and style — tailored to how you drive.
+            </p>
+          </div>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {whyChoose.map((b, i) => (
+              <div key={i} className="bg-white rounded-xl shadow-lg p-8 hover:shadow-xl transition-shadow">
+                <div className="bg-blue-100 text-blue-600 w-16 h-16 rounded-lg flex items-center justify-center mb-6">
+                  <b.icon size={32} />
+                </div>
+                <h4 className="text-xl font-semibold text-gray-900 mb-3">{b.title}</h4>
+                <p className="text-gray-600">{b.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Vehicle Type Tabs + Gallery */}
+      
 
       {/* Benefits Bullets */}
       <section className="py-16 px-4 bg-white">
