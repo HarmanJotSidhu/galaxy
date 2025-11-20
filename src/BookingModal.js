@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import { X } from 'lucide-react';
 import emailjs from 'emailjs-com';
+import { Link } from "react-router-dom";
 
 const BookingModal = ({ setIsModalOpen, setIsContactModalOpen, isContactModalOpen }) => {
   const [formData, setFormData] = useState({
@@ -10,10 +11,14 @@ const BookingModal = ({ setIsModalOpen, setIsContactModalOpen, isContactModalOpe
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitSuccess, setSubmitSuccess] = useState(false);
   const [errors, setErrors] = useState({});
+  
+  const [agree, setAgree] = useState(false);
 
   const validateForm = () => {
     const newErrors = {};
+    if (!agree) newErrors.terms = 'Please agree to terms and conditions';
     if (!formData.name) newErrors.name = 'Name is required';
+    if (!formData.phone) newErrors.phone = 'Phone number is required';
     if (!formData.email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) newErrors.email = 'Valid email is required';
     if (!formData.service) newErrors.service = 'Service selection is required';
     return newErrors;
@@ -126,6 +131,7 @@ const BookingModal = ({ setIsModalOpen, setIsContactModalOpen, isContactModalOpe
                 onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                 disabled={isSubmitting}
               />
+              {errors.phone && <p className="text-red-600 text-sm mt-1">{errors.phone}</p>}
             </div>
 
             <div>
@@ -165,7 +171,29 @@ const BookingModal = ({ setIsModalOpen, setIsContactModalOpen, isContactModalOpe
                 onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                 disabled={isSubmitting}
               ></textarea>
+              {errors.terms && <p className="text-red-600 text-sm mt-1">{errors.terms}</p>}
             </div>
+            {/* Terms and conditions checkbox */}
+      <div className="flex items-start">
+        <input
+          id="agree"
+          type="checkbox"
+          checked={agree}
+          onChange={(e) => setAgree(e.target.checked)}
+          className="mt-1 h-4 w-4 text-blue-600 border-gray-300 rounded"
+        /> <label htmlFor="agree" className="ml-2 text-sm text-gray-700">
+          I agree to the{" "}
+          <Link
+            to="/terms"
+            className="text-blue-600 hover:underline"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Terms and Conditions
+          </Link>
+        .
+        </label>
+        </div>
 
             <button
               type="submit"
