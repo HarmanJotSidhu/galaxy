@@ -62,7 +62,7 @@ const TintingGallery = () => {
 
   return (
     <div className="container mx-auto px-6 py-12">
-       <HeroSection></HeroSection>
+       <HeroSection description='Expore the quality of our work — ceramic coating, paint protection, window tinting, and custom wraps.'></HeroSection>
       <div className="text-center mb-10">
         <h1 className="text-4xl font-bold mb-2">Our Portfolio</h1>
         <p className="text-gray-600">Click any photo to learn more about our work</p>
