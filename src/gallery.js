@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import  HeroSection from "./components/Hero.tsx"
 
 const GallerySection = ({ title, items }) => {
   const [expandedIndex, setExpandedIndex] = useState(null);
@@ -8,7 +9,7 @@ const GallerySection = ({ title, items }) => {
   };
 
   return (
-    <div className="mb-12">
+      <div className="mb-12">
       <h2 className="text-2xl font-bold mb-6">{title}</h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
         {items.map((item, index) => (
@@ -33,6 +34,7 @@ const GallerySection = ({ title, items }) => {
         ))}
       </div>
     </div>
+    
   );
 };
 
@@ -60,6 +62,7 @@ const TintingGallery = () => {
 
   return (
     <div className="container mx-auto px-6 py-12">
+       <HeroSection></HeroSection>
       <div className="text-center mb-10">
         <h1 className="text-4xl font-bold mb-2">Our Portfolio</h1>
         <p className="text-gray-600">Click any photo to learn more about our work</p>

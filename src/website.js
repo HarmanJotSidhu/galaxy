@@ -3,6 +3,7 @@ import BookingModal from './BookingModal.js';
 import { Phone, Mail, ChevronRight } from 'lucide-react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Car, Shield, Sun, Sparkles } from 'lucide-react';
+import  HeroSection from "./components/Hero.tsx"
 
 const TintWrapWebsite = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -89,29 +90,7 @@ const TintWrapWebsite = () => {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Hero Section */}
-      <div
-        className="relative bg-gray-900 bg-cover bg-center"
-        style={{ backgroundImage: "url('./hero2.png')", backgroundSize: 'cover' }}
-      >
-        <div className="absolute inset-0 bg-black bg-opacity-40"></div>
-        <div className="relative max-w-7xl mx-auto px-4 py-12 md:py-24">
-          <div className="text-center md:text-left">
-            <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
-              Galaxy <br className="hidden md:block" />
-              Tint and Wrap
-            </h1>
-            <p className="text-lg md:text-xl text-gray-300 mb-8">
-              Enjoy professional mobile services, bringing expert care to your location.
-            </p>
-            <button
-              onClick={() => setIsContactModalOpen(true)}
-              className="bg-white text-blue-600 px-8 py-3 rounded-md hover:bg-gray-100 flex items-center justify-center"
-            >
-              Contact Us <ChevronRight className="ml-2" />
-            </button>
-          </div>
-        </div>
-      </div>
+      <HeroSection></HeroSection>
 
       {/* Services Section */}
       <div ref={servicesRef} className="max-w-7xl mx-auto px-4 py-16">
